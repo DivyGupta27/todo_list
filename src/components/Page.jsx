@@ -29,6 +29,7 @@ export default function TodoApp() {
       });
       const json = await res.json();
       if (json.success) {
+        toast.success('successfully added')
         setTodos([json.data, ...todos]);
         setTask('');
       }
