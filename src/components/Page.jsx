@@ -12,7 +12,7 @@ export default function TodoApp() {
 
   const fetchTodos = async () => {
     try {
-      const res = await fetch('http://localhost:8000/api/todos');
+      const res = await fetch('https://todo-list-vj48.onrender.com/api/todos');
       const json = await res.json();
       if (json.success) setTodos(json.data);
     } catch (e) {
@@ -23,7 +23,7 @@ export default function TodoApp() {
   const addTodo = async () => {
     if (!task.trim()) return;
     try {
-      const res = await fetch('http://localhost:8000/api/todos', {
+      const res = await fetch('https://todo-list-vj48.onrender.com/api/todos', {
         method: 'POST', headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ text: task })
       });
@@ -40,7 +40,7 @@ export default function TodoApp() {
 
   const toggleComplete = async (id, completed) => {
     try {
-      const res = await fetch(`http://localhost:8000/api/todos/${id}`, {
+      const res = await fetch(`https://todo-list-vj48.onrender.com/api/todos/${id}`, {
         method: 'PUT', headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ completed: !completed })
       });
@@ -55,7 +55,7 @@ export default function TodoApp() {
 
   const deleteTodo = async (id) => {
     try {
-      await fetch(`http://localhost:8000/api/todos/${id}`, { method: 'DELETE' });
+      await fetch(`https://todo-list-vj48.onrender.com/api/todos/${id}`, { method: 'DELETE' });
       setTodos(todos.filter(t => t._id !== id));
     } catch (e) {
       toast.error('Failed to delete');
