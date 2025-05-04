@@ -83,7 +83,7 @@ export default function TodoApp() {
                 onClick={() => toggleComplete(todo._id, todo.completed)}
                 className={todo.completed ? 'line-through text-gray-400' : 'text-gray-800'}
               >{todo.text}</span>
-              <button onClick={() => deleteTodo(todo._id)} className="text-red-600">✕</button>
+              <button onClick={() => deleteTodo(todo._id)} className="cursor-pointer text-red-600">✕</button>
             </li>
           ))}
         </ul>
